@@ -34,8 +34,12 @@ def main():
     proxy.connect_to_signal("device_added", device_changed)
     # There is also 'device_removed'
 
-    loop = GLib.MainLoop()
-    loop.run()
+    try:
+        loop = GLib.MainLoop()
+        loop.run()
+    except KeyboardInterrupt:
+        print("Bye.")
+        sys.exit(0)
 
 
 if __name__ == "__main__":
